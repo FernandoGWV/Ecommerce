@@ -1,7 +1,11 @@
 import React from "react";
 
 const Home = () => {
-  return null;
+  return (
+    <section className={`container`}>
+      <main>ghome</main>
+    </section>
+  );
 };
 
 export default Home;
