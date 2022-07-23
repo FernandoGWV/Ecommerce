@@ -1,8 +1,9 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Header />
@@ -11,6 +12,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
