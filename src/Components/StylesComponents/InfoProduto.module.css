@@ -6,9 +6,66 @@
 }
 
 .aside .title {
+  margin: 20px 0;
   font-size: 2rem;
 }
 
 .aside p {
-  width: 500px;
+  color: rgba(0, 0, 0, 0.7);
+  width: 450px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+.aside .preco {
+  margin-bottom: 10px;
+}
+
+.aside .preco strong {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.aside .preco span {
+  padding: 0 10px;
+  background: hsl(25, 100%, 94%);
+  color: hsl(26, 100%, 55%);
+}
+
+.aside span {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+.aside .btn {
+  display: flex;
+  margin-top: 20px;
+}
+
+.aside .btn button {
+  background: none;
+  cursor: pointer;
+  padding: 2px;
+  border: none;
+}
+
+.aside .btn div {
+  width: 150px;
+  padding: 10px;
+  background: #f0f0f0;
+}
+
+.aside .btn span {
+  margin: 0 40px;
+  font-weight: 700;
+}
+
+.aside .btn .BtnCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+  border-radius: 6px;
+  color: #f0f0f0;
+  margin-left: 20px;
+  padding: 10px 30px;
+  background: hsl(26, 100%, 55%);
 }

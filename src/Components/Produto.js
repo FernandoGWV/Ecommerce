@@ -8,15 +8,11 @@ import Product2Thumb from "../Assets/image-product-2-thumbnail.jpg";
 import Product3Thumb from "../Assets/image-product-3-thumbnail.jpg";
 import Product4Thumb from "../Assets/image-product-4-thumbnail.jpg";
 const Produto = () => {
-  const imageT = React.useRef();
-
-  console.log(imageT.current.img);
-
   return (
     <div className={styles.ArtgProduto}>
       <div>
         <div className={`${styles.content} content`}>
-          <img ref={imageT} src={Product} alt="Produto 1" />
+          <img src={Product} alt="Produto 1" />
         </div>
         <ul>
           <li>
