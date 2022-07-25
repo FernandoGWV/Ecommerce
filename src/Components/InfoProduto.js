@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./StylesComponents/InfoProduto.module.css";
 import { ReactComponent as Minus } from "../Assets/icon-minus.svg";
 import { ReactComponent as Plus } from "../Assets/icon-plus.svg";
-import { ReactComponent as Cart } from "../Assets/icon-cart.svg";
 
 const InfoProduto = () => {
   const [contar, setContar] = React.useState(0);
