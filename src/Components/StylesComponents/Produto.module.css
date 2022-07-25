@@ -1,0 +1,30 @@
+.ArtgProduto {
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.ArtgProduto .content img {
+  width: 360px;
+  border-radius: 10px;
+}
+
+.ArtgProduto ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.ArtgProduto ul li img {
+  width: 75px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.ArtgProduto ul li {
+  margin-right: 20px;
+}
+
+.ArtgProduto ul li img:hover {
+  border: solid #d2a86e 2px;
+}

@@ -1,0 +1,14 @@
+.aside span:first-child {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: orange;
+}
+
+.aside .title {
+  font-size: 2rem;
+}
+
+.aside p {
+  width: 500px;
+}
