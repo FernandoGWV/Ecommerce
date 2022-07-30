@@ -10,48 +10,60 @@ import Product1Thumb from "../Assets/image-product-1-thumbnail.jpg";
 import Product2Thumb from "../Assets/image-product-2-thumbnail.jpg";
 import Product3Thumb from "../Assets/image-product-3-thumbnail.jpg";
 import Product4Thumb from "../Assets/image-product-4-thumbnail.jpg";
+import ModalProduto from "./ModalProduto";
 const Produto = () => {
+  const [modal, setModal] = React.useState(null);
   const [product, setProduct] = React.useState(Product1);
   return (
-    <div className={styles.ArtgProduto}>
-      <div>
-        <div className={`${styles.content}`}>
-          <img src={product} id="Produto1" alt="Produto 1" />
-        </div>
-        <ul>
-          <li>
+    <>
+      <div className={styles.ArtgProduto}>
+        <div>
+          <div className={`${styles.content}`}>
             <img
-              src={Product1Thumb}
-              onClick={() => setProduct(Product1)}
+              src={product}
               id="Produto1"
-              alt="Produto thumbanil 1"
+              alt="Produto 1"
+              onClick={() => setModal(true)}
             />
-          </li>
-          <li>
-            <img
-              src={Product2Thumb}
-              onClick={() => setProduct(Product2)}
-              alt="Produto thumbnail 2"
-            />
-          </li>
-          <li>
-            <img
-              src={Product3Thumb}
-              onClick={() => setProduct(Product3)}
-              alt="Produto thumbnail 3"
-            />
-          </li>
-          <li>
-            <img
-              src={Product4Thumb}
-              onClick={() => setProduct(Product4)}
-              alt="Produto thumbnail 4"
-            />
-          </li>
-        </ul>
+          </div>
+          <ul>
+            <li>
+              <img
+                src={Product1Thumb}
+                onClick={() => setProduct(Product1)}
+                id="Produto1"
+                alt="Produto thumbanil 1"
+              />
+            </li>
+            <li>
+              <img
+                src={Product2Thumb}
+                onClick={() => setProduct(Product2)}
+                alt="Produto thumbnail 2"
+              />
+            </li>
+            <li>
+              <img
+                src={Product3Thumb}
+                onClick={() => setProduct(Product3)}
+                alt="Produto thumbnail 3"
+              />
+            </li>
+            <li>
+              <img
+                src={Product4Thumb}
+                onClick={() => setProduct(Product4)}
+                alt="Produto thumbnail 4"
+              />
+            </li>
+          </ul>
+        </div>
+        <InfoProduto />
       </div>
-      <InfoProduto />
-    </div>
+      <div>
+        {modal && <ModalProduto produto={modal} setProduto={setModal} />}
+      </div>
+    </>
   );
 };
 
