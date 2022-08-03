@@ -14,6 +14,7 @@ import ModalProduto from "./ModalProduto";
 const Produto = () => {
   const [modal, setModal] = React.useState(null);
   const [product, setProduct] = React.useState(Product1);
+  const img = React.useRef(Product1);
   return (
     <>
       <div className={styles.ArtgProduto}>
@@ -58,7 +59,7 @@ const Produto = () => {
             </li>
           </ul>
         </div>
-        <InfoProduto />
+        <InfoProduto img={img} />
       </div>
       <div>
         {modal && <ModalProduto produto={modal} setProduto={setModal} />}

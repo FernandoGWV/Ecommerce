@@ -3,8 +3,11 @@ import styles from "./StylesComponents/Header.module.css";
 import { ReactComponent as Cart } from "../Assets/icon-cart.svg";
 import AvatarPng from "../Assets/image-avatar.png";
 import { ReactComponent as Logo } from "../Assets/logo.svg";
-
+import ProdutoJson from "./ProdutoJson";
 const Header = () => {
+  const dados = ProdutoJson;
+  const arrayDado = [dados.title, dados.preco, dados.total];
+  console.log(arrayDado);
   return (
     <header className={`${styles.ModSection1} container`}>
       {" "}
