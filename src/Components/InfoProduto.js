@@ -2,9 +2,10 @@ import React from "react";
 import styles from "./StylesComponents/InfoProduto.module.css";
 import { ReactComponent as Minus } from "../Assets/icon-minus.svg";
 import { ReactComponent as Plus } from "../Assets/icon-plus.svg";
-import ProdutoJson from "./ProdutoJson";
+import { useCarrinho } from "../ContextKart/KartCarrinho";
 
 const InfoProduto = ({ img }) => {
+  const carrinho = useCarrinho();
   const [contar, setContar] = React.useState(0);
   function handleClick() {
     if (contar === 0) {
@@ -19,14 +20,14 @@ const InfoProduto = ({ img }) => {
   const quantidade = React.useRef();
   const imagem = img.current;
 
-  const dados = ProdutoJson;
   function handleSubmit(event) {
     event.preventDefault();
 
-    dados.title = h1.current.innerText;
-    dados.preco = valor.current.innerText;
-    dados.total = quantidade.current.innerText;
-    dados.thumb = imagem;
+    const title = h1.current.innerText;
+    const preco = valor.current.innerText;
+    const total = quantidade.current.innerText;
+    const thumb = imagem;
+    carrinho.addItem(title, preco, total, thumb);
   }
 
   return (

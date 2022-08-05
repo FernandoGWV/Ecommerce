@@ -1,17 +1,17 @@
 import React from "react";
 
-const Carrinho = React.createContext({
+const CarrinhoContext = React.createContext({
   carrinho: [],
   addItem: () => {},
 });
 
-const CarrinhoContext = ({ children }) => {
+const Carrinho = ({ children }) => {
   const [carrinho, setCarrinho] = React.useState(
-    JSON.parse(localStorage.setItem("@cart") || [])
+    JSON.parse(localStorage.getItem("@cart")) || []
   );
 
   React.useEffect(() => {
-    localStorage.getItem("@cart", JSON.stringify(carrinho));
+    localStorage.setItem("@cart", JSON.stringify(carrinho));
   }, [carrinho]);
 
   const addItem = (titulo, preco, total, imagem) => {
@@ -21,7 +21,7 @@ const CarrinhoContext = ({ children }) => {
       total,
       imagem,
     };
-    setCarrinho((atual) => atual.concat(item));
+    setCarrinho(() => item);
   };
 
   return (
@@ -36,4 +36,8 @@ const CarrinhoContext = ({ children }) => {
   );
 };
 
-export default CarrinhoContext;
+export const useCarrinho = () => {
+  const context = React.useContext(CarrinhoContext);
+  return context;
+};
+export default Carrinho;
