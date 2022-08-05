@@ -21,7 +21,7 @@ const Carrinho = ({ children }) => {
       total,
       imagem,
     };
-    setCarrinho(() => item);
+    setCarrinho((atual) => atual.concat(item));
   };
 
   return (
