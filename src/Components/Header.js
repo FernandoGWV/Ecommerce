@@ -4,8 +4,11 @@ import { ReactComponent as Cart } from "../Assets/icon-cart.svg";
 import AvatarPng from "../Assets/image-avatar.png";
 import { ReactComponent as Logo } from "../Assets/logo.svg";
 import ProdutoJson from "./ProdutoJson";
+import { useCarrinho } from "../ContextKart/KartCarrinho";
 const Header = () => {
   const dados = ProdutoJson;
+
+  const CarinhoContext = useCarrinho();
   const arrayDado = [dados.title, dados.preco, dados.total];
   console.log(arrayDado);
   return (
@@ -26,6 +29,7 @@ const Header = () => {
       <div>
         <figure>
           {" "}
+          <span>{CarinhoContext.carrinho.length}</span>
           <Cart />
         </figure>
         <figure>
