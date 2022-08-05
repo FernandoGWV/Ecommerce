@@ -4,17 +4,12 @@ import Product1 from "../Assets/image-product-1.jpg";
 import Product2 from "../Assets/image-product-2.jpg";
 import Product3 from "../Assets/image-product-3.jpg";
 import Product4 from "../Assets/image-product-4.jpg";
-import Product1Thumb from "../Assets/image-product-1-thumbnail.jpg";
-import Product2Thumb from "../Assets/image-product-2-thumbnail.jpg";
-import Product3Thumb from "../Assets/image-product-3-thumbnail.jpg";
-import Product4Thumb from "../Assets/image-product-4-thumbnail.jpg";
 
-const Produtos = ({ produto, setProduto }) => {
-  const [product, setProduct] = React.useState(Product1);
+const Produtos = ({ produto, setProduto, OthersImage }) => {
   const [contar, setContar] = React.useState(0);
   const [modal, setModal] = React.useState(null);
 
-  const teste = [Product1, Product2, Product3, Product4];
+  const [product, setProduct] = React.useState(OthersImage[contar].linkLarge);
 
   function handleNextClick(event) {
     if (contar === 3) {
@@ -22,7 +17,7 @@ const Produtos = ({ produto, setProduto }) => {
     } else {
       setContar(contar + 1);
     }
-    setProduct(teste[contar]);
+    setProduct(OthersImage[contar].linkLarge);
   }
 
   function handlePreviusClick(event) {
@@ -31,7 +26,7 @@ const Produtos = ({ produto, setProduto }) => {
     } else {
       setContar(contar - 1);
     }
-    setProduct(teste[contar]);
+    setProduct(OthersImage[contar].linkLarge);
   }
   if (produto)
     return (
@@ -85,35 +80,18 @@ const Produtos = ({ produto, setProduto }) => {
                 </button>
               </div>
               <ul className={styles.ProdutosList}>
-                <li>
-                  <img
-                    src={Product1Thumb}
-                    onClick={() => setProduct(Product1)}
-                    id="Produto1"
-                    alt="Produto thumbanil 1"
-                  />
-                </li>
-                <li>
-                  <img
-                    src={Product2Thumb}
-                    onClick={() => setProduct(Product2)}
-                    alt="Produto thumbnail 2"
-                  />
-                </li>
-                <li>
-                  <img
-                    src={Product3Thumb}
-                    onClick={() => setProduct(Product3)}
-                    alt="Produto thumbnail 3"
-                  />
-                </li>
-                <li>
-                  <img
-                    src={Product4Thumb}
-                    onClick={() => setProduct(Product4)}
-                    alt="Produto thumbnail 4"
-                  />
-                </li>
+                {OthersImage.map((item) => {
+                  return (
+                    <li>
+                      <img
+                        src={item.linkSmall}
+                        onClick={() => setProduct(item.linkLarge)}
+                        id="Produto1"
+                        alt="Produto thumbanil 1"
+                      />
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

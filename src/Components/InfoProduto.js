@@ -4,7 +4,15 @@ import { ReactComponent as Minus } from "../Assets/icon-minus.svg";
 import { ReactComponent as Plus } from "../Assets/icon-plus.svg";
 import { useCarrinho } from "../ContextKart/KartCarrinho";
 
-const InfoProduto = ({ img }) => {
+const InfoProduto = ({
+  img,
+  titulo,
+  description,
+  preco,
+  promo,
+  desconto,
+  OthersImage,
+}) => {
   const carrinho = useCarrinho();
   const [contar, setContar] = React.useState(0);
   function handleClick() {
@@ -23,11 +31,10 @@ const InfoProduto = ({ img }) => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const title = h1.current.innerText;
     const preco = valor.current.innerText;
     const total = quantidade.current.innerText;
     const thumb = imagem;
-    carrinho.addItem(title, preco, total, thumb);
+    carrinho.addItem(titulo, preco, total, thumb);
   }
 
   return (
@@ -35,20 +42,13 @@ const InfoProduto = ({ img }) => {
       <div>
         <span>sneaker company</span>
 
-        <h1 ref={h1} className={styles.title}>
-          Fall Limited Edition <br />
-          Sneakers
-        </h1>
-        <p>
-          These low-pr ofile sneakrs are you perfect casual wear companion.
-          Featuring a durable rubber outer sole, they'll <br /> withstand
-          everything the weather can offer
-        </p>
+        <h1 className={styles.title}>{titulo}</h1>
+        <p>{description}</p>
         <div className={styles.preco}>
-          <strong ref={valor}>$125.00</strong>
-          <span>50%</span>
+          <strong ref={valor}>${promo.toFixed(2)}</strong>
+          <span>{desconto}%</span>
         </div>
-        <span>$250.00</span>
+        <span>${preco.toFixed(2)}</span>
         <div className={styles.btn}>
           <div className={styles.btnSoma}>
             <button onClick={handleClick}>

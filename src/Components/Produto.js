@@ -31,8 +31,8 @@ const Produto = ({
               return (
                 <li>
                   <img
-                    src={OthersImage.linkSmall}
-                    onClick={() => setProduct(OthersImage.linkLarge)}
+                    src={item.linkSmall}
+                    onClick={() => setProduct(item.linkLarge)}
                     id="Produto1"
                     alt="Produto thumbanil 1"
                   />
@@ -41,10 +41,24 @@ const Produto = ({
             })}
           </ul>
         </div>
-        <InfoProduto img={img} />
+        <InfoProduto
+          img={img}
+          titulo={titulo}
+          description={description}
+          preco={preco}
+          promo={promo}
+          desconto={desconto}
+        />
       </div>
       <div>
-        {modal && <ModalProduto produto={modal} setProduto={setModal} />}
+        {modal && (
+          <ModalProduto
+            produto={modal}
+            setProduto={setModal}
+            img={img}
+            OthersImage={OthersImage}
+          />
+        )}
       </div>
     </>
   );
