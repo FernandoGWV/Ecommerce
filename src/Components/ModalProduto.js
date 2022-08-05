@@ -1,9 +1,5 @@
 import React from "react";
 import styles from "./StylesComponents/ModalProduto.module.css";
-import Product1 from "../Assets/image-product-1.jpg";
-import Product2 from "../Assets/image-product-2.jpg";
-import Product3 from "../Assets/image-product-3.jpg";
-import Product4 from "../Assets/image-product-4.jpg";
 
 const Produtos = ({ produto, setProduto, OthersImage }) => {
   const [contar, setContar] = React.useState(0);
