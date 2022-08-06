@@ -35,6 +35,34 @@ const ProdutosDB = [
       },
     ],
   },
+
+  {
+    titulo: "Fall Limited Edition Sneakers",
+    id: 2,
+    description:
+      "These low-pr ofile sneakrs are you perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer",
+    preco: 250.0,
+    promo: 125.0,
+    desconto: 50,
+    OthersImage: [
+      {
+        linkSmall: Product1Thumb,
+        linkLarge: Product1,
+      },
+      {
+        linkSmall: Product2Thumb,
+        linkLarge: Product2,
+      },
+      {
+        linkSmall: Product3Thumb,
+        linkLarge: Product3,
+      },
+      {
+        linkSmall: Product4Thumb,
+        linkLarge: Product4,
+      },
+    ],
+  },
 ];
 
 export default ProdutosDB;

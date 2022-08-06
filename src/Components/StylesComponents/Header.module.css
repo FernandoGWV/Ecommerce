@@ -51,6 +51,9 @@
 .IconsContent {
   position: relative;
 }
+.IconsContent figure {
+  position: relative;
+}
 
 .IconsContent span:first-child {
   position: absolute;
@@ -87,8 +90,4 @@
 .IconsContent .kartComponent div img {
   border-radius: 5px;
   padding-bottom: 5px;
-}
-
-.listCart {
-  max-height: 500px;
 }

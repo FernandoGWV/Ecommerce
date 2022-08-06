@@ -2,10 +2,15 @@ import React from "react";
 import styles from "./StylesComponents/Header.module.css";
 import { ReactComponent as Cart } from "../Assets/icon-cart.svg";
 import AvatarPng from "../Assets/image-avatar.png";
+import { ReactComponent as Delete } from "../Assets/icon-delete.svg";
 import { ReactComponent as Logo } from "../Assets/logo.svg";
 import { useCarrinho } from "../ContextKart/KartCarrinho";
+import ProdutoDB from "../ProdutoDataBase/ProdutosDB";
 const Header = () => {
   const CarinhoContext = useCarrinho();
+  function DeleteProduto() {
+    CarinhoContext.limpaDados();
+  }
 
   return (
     <header className={`${styles.ModSection1} container`}>
@@ -35,7 +40,7 @@ const Header = () => {
           <Cart />
           <div className={styles.kartComponent}>
             <ul className={styles.listCart}>
-              {CarinhoContext.carrinho.map((item, index) => {
+              {CarinhoContext.carrinho.map((item) => {
                 return (
                   <li>
                     {" "}
@@ -52,6 +57,9 @@ const Header = () => {
                     <strong>
                       {item.total ? item.total * item.preco : item.preco}
                     </strong>
+                    <button onClick={DeleteProduto}>
+                      <Delete />
+                    </button>
                   </li>
                 );
               })}

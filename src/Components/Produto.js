@@ -9,6 +9,7 @@ const Produto = ({
   preco,
   promo,
   desconto,
+  id,
   OthersImage,
 }) => {
   const [modal, setModal] = React.useState(null);
@@ -47,6 +48,7 @@ const Produto = ({
           description={description}
           preco={preco}
           promo={promo}
+          id={id}
           desconto={desconto}
         />
       </div>

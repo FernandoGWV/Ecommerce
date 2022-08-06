@@ -11,6 +11,7 @@ const InfoProduto = ({
   preco,
   promo,
   desconto,
+  id,
   OthersImage,
 }) => {
   const carrinho = useCarrinho();
@@ -27,8 +28,7 @@ const InfoProduto = ({
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    carrinho.addItem(titulo, promo, contar, imagem);
+    carrinho.addItem(titulo, promo, contar, imagem, id);
   }
 
   return (

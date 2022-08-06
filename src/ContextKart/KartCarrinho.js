@@ -3,6 +3,7 @@ import React from "react";
 const CarrinhoContext = React.createContext({
   carrinho: [],
   addItem: () => {},
+  limpaDados: [],
 });
 
 const Carrinho = ({ children }) => {
@@ -14,14 +15,30 @@ const Carrinho = ({ children }) => {
     localStorage.setItem("@cart", JSON.stringify(carrinho));
   }, [carrinho]);
 
-  const addItem = (titulo, preco, total, imagem) => {
+  const limpaDados = (titulo, preco, total, imagem, id) => {
     const item = {
       titulo,
       preco,
       total,
       imagem,
     };
-    setCarrinho((atual) => atual.concat(item));
+    const NovoCarrinho = carrinho.filter((item) => item.id !== id);
+    NovoCarrinho.splice(item);
+    setCarrinho(NovoCarrinho);
+    console.log(carrinho.filter((item) => item.id));
+  };
+
+  const addItem = (titulo, preco, total, imagem, id) => {
+    const item = {
+      titulo,
+      preco,
+      total,
+      imagem,
+    };
+    const NovoCarrinho = carrinho.filter((item) => item.id !== id);
+    NovoCarrinho.push(item);
+    setCarrinho(NovoCarrinho);
+    console.log(carrinho.filter((item) => item.id));
   };
 
   return (
@@ -29,6 +46,7 @@ const Carrinho = ({ children }) => {
       value={{
         carrinho,
         addItem,
+        limpaDados,
       }}
     >
       {children}
