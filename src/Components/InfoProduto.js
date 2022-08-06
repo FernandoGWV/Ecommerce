@@ -23,18 +23,12 @@ const InfoProduto = ({
     }
   }
 
-  const h1 = React.useRef();
-  const valor = React.useRef();
-  const quantidade = React.useRef();
   const imagem = img.current;
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const preco = valor.current.innerText;
-    const total = quantidade.current.innerText;
-    const thumb = imagem;
-    carrinho.addItem(titulo, preco, total, thumb);
+    carrinho.addItem(titulo, promo, contar, imagem);
   }
 
   return (
@@ -45,7 +39,7 @@ const InfoProduto = ({
         <h1 className={styles.title}>{titulo}</h1>
         <p>{description}</p>
         <div className={styles.preco}>
-          <strong ref={valor}>${promo.toFixed(2)}</strong>
+          <strong>${promo.toFixed(2)}</strong>
           <span>{desconto}%</span>
         </div>
         <span>${preco.toFixed(2)}</span>
@@ -54,7 +48,7 @@ const InfoProduto = ({
             <button onClick={handleClick}>
               <Minus />
             </button>
-            <span ref={quantidade}> {contar}</span>
+            <span> {contar}</span>
             <button
               onClick={() => {
                 setContar(contar + 1);

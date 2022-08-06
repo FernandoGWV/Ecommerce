@@ -3,14 +3,10 @@ import styles from "./StylesComponents/Header.module.css";
 import { ReactComponent as Cart } from "../Assets/icon-cart.svg";
 import AvatarPng from "../Assets/image-avatar.png";
 import { ReactComponent as Logo } from "../Assets/logo.svg";
-import ProdutoJson from "./ProdutoJson";
 import { useCarrinho } from "../ContextKart/KartCarrinho";
 const Header = () => {
-  const dados = ProdutoJson;
-
   const CarinhoContext = useCarrinho();
-  const arrayDado = [dados.title, dados.preco, dados.total];
-  console.log(arrayDado);
+
   return (
     <header className={`${styles.ModSection1} container`}>
       {" "}
@@ -26,11 +22,41 @@ const Header = () => {
           <li>Contact</li>
         </ul>
       </nav>
-      <div>
+      <div className={styles.IconsContent}>
         <figure>
           {" "}
-          <span>{CarinhoContext.carrinho.length}</span>
+          <span
+            style={{
+              display: CarinhoContext.carrinho.length === 0 ? "none" : "block",
+            }}
+          >
+            {CarinhoContext.carrinho.length}
+          </span>
           <Cart />
+          <div className={styles.kartComponent}>
+            <ul className={styles.listCart}>
+              {CarinhoContext.carrinho.map((item, index) => {
+                return (
+                  <li>
+                    {" "}
+                    <div>
+                      <img src={item.imagem} alt="" />
+                      <p>{item.titulo}</p>{" "}
+                    </div>
+                    <span>${item.preco.toFixed(2)}</span> x{" "}
+                    <span
+                      style={{ display: item.total === 0 ? "none" : "inline" }}
+                    >
+                      {item.total}
+                    </span>
+                    <strong>
+                      {item.total ? item.total * item.preco : item.preco}
+                    </strong>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </figure>
         <figure>
           {" "}

@@ -48,3 +48,47 @@
 .ModSection1 div img {
   width: 40px;
 }
+.IconsContent {
+  position: relative;
+}
+
+.IconsContent span:first-child {
+  position: absolute;
+  text-align: center;
+  color: white;
+  top: -15px;
+  right: -8px;
+
+  font-size: 10px;
+  background: #f28705;
+  border-radius: 10px;
+  padding: 2px;
+  width: 20px;
+}
+
+.IconsContent .kartComponent {
+  position: absolute;
+  border-radius: 10px;
+  padding: 20px;
+  left: -300px;
+  width: 400px;
+  margin-right: 20px;
+  background-color: #fefefe;
+  box-shadow: 0 0 6px #79717a;
+  z-index: 999;
+}
+
+.IconsContent .kartComponent div p {
+  font-family: "Khumb sans";
+  font-size: 1.085rem;
+  padding-left: 10px;
+}
+
+.IconsContent .kartComponent div img {
+  border-radius: 5px;
+  padding-bottom: 5px;
+}
+
+.listCart {
+  max-height: 500px;
+}
