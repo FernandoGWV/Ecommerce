@@ -70,11 +70,16 @@
 }
 
 .IconsContent .kartComponent {
+  display: grid;
+  overflow: auto;
+  align-items: flex-start;
   position: absolute;
   border-radius: 10px;
   padding: 20px;
-  left: -300px;
+  top: 40px;
+  right: 0;
   width: 400px;
+  height: 200px;
   margin-right: 20px;
   background-color: #fefefe;
   box-shadow: 0 0 6px #79717a;
@@ -88,6 +93,6 @@
 }
 
 .IconsContent .kartComponent div img {
-  border-radius: 5px;
+  border-radius: 8px;
   padding-bottom: 5px;
 }

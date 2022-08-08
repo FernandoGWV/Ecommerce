@@ -28,7 +28,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className={styles.IconsContent}>
-        <figure>
+        <figure className={styles.CartIcon}>
           {" "}
           <span
             style={{
@@ -38,34 +38,34 @@ const Header = () => {
             {CarinhoContext.carrinho.length}
           </span>
           <Cart />
-          <div className={styles.kartComponent}>
-            <ul className={styles.listCart}>
-              {CarinhoContext.carrinho.map((item) => {
-                return (
-                  <li>
-                    {" "}
-                    <div>
-                      <img src={item.imagem} alt="" />
-                      <p>{item.titulo}</p>{" "}
-                    </div>
-                    <span>${item.preco.toFixed(2)}</span> x{" "}
-                    <span
-                      style={{ display: item.total === 0 ? "none" : "inline" }}
-                    >
-                      {item.total}
-                    </span>
-                    <strong>
-                      {item.total ? item.total * item.preco : item.preco}
-                    </strong>
-                    <button onClick={DeleteProduto}>
-                      <Delete />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
         </figure>
+        <div className={styles.kartComponent}>
+          <ul className={styles.listCart}>
+            {CarinhoContext.carrinho.map((item) => {
+              return (
+                <li>
+                  {" "}
+                  <div>
+                    <img src={item.imagem} alt="" />
+                    <p>{item.titulo}</p>{" "}
+                  </div>
+                  <span>${item.preco.toFixed(2)}</span> x{" "}
+                  <span
+                    style={{ display: item.total === 0 ? "none" : "inline" }}
+                  >
+                    {item.total}
+                  </span>
+                  <strong>
+                    {item.total ? item.total * item.preco : item.preco}
+                  </strong>
+                  <button onClick={DeleteProduto}>
+                    <Delete />
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <figure>
           {" "}
           <img src={AvatarPng} alt="Avatar" />
