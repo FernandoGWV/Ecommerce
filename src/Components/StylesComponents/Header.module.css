@@ -38,7 +38,8 @@
   align-items: center;
 }
 
-.ModSection1 div figure {
+.ModSection1 div figure svg,
+.ModSection1 div figure.avatar img {
   cursor: pointer;
 }
 .ModSection1 div figure:first-child {
@@ -61,7 +62,6 @@
   color: white;
   top: -15px;
   right: -8px;
-
   font-size: 10px;
   background: #f28705;
   border-radius: 10px;
@@ -77,22 +77,42 @@
   border-radius: 10px;
   padding: 20px;
   top: 40px;
-  right: 0;
+  right: -50px;
   width: 400px;
   height: 200px;
   margin-right: 20px;
   background-color: #fefefe;
   box-shadow: 0 0 6px #79717a;
-  z-index: 999;
+  z-index: 200;
 }
 
 .IconsContent .kartComponent div p {
   font-family: "Khumb sans";
-  font-size: 1.085rem;
+
+  font-size: 1.2rem;
   padding-left: 10px;
 }
 
 .IconsContent .kartComponent div img {
   border-radius: 8px;
   padding-bottom: 5px;
+}
+
+.IconsContent .kartComponent .kartAviso {
+  text-align: center;
+  font-family: "Khumb sans";
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: auto 0;
+}
+
+.IconsContent .kartComponent .listCart button {
+  position: absolute;
+  right: 20px;
+  background: none;
+  border: none;
+}
+
+.kartComponent .listCart button svg path {
+  fill: #ff7d1a;
 }

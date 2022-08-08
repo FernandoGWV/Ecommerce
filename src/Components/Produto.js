@@ -52,16 +52,14 @@ const Produto = ({
           desconto={desconto}
         />
       </div>
-      <div>
-        {modal && (
-          <ModalProduto
-            produto={modal}
-            setProduto={setModal}
-            img={img}
-            OthersImage={OthersImage}
-          />
-        )}
-      </div>
+      {modal && (
+        <ModalProduto
+          produto={modal}
+          setProduto={setModal}
+          img={img}
+          OthersImage={OthersImage}
+        />
+      )}
     </>
   );
 };
