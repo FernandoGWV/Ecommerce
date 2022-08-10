@@ -17,16 +17,26 @@ const Header = () => {
   return (
     <header className={`${styles.ModSection1} container`}>
       {" "}
-      <nav>
+      <nav className={styles.navStyle}>
         <figure>
           <Logo />
         </figure>
-        <ul>
-          <li>Collections</li>
-          <li>Men</li>
-          <li>Women</li>
-          <li>About</li>
-          <li>Contact</li>
+        <ul className={styles.subNav}>
+          <li>
+            <a href="/">Collections</a>
+          </li>
+          <li>
+            <a href="/">Men</a>
+          </li>
+          <li>
+            <a href="/">Women</a>
+          </li>
+          <li>
+            <a href="/">About</a>
+          </li>
+          <li>
+            <a href="/">Contact</a>
+          </li>
         </ul>
       </nav>
       <div className={styles.IconsContent}>
@@ -39,7 +49,9 @@ const Header = () => {
           >
             {CarinhoContext.carrinho.length}
           </span>
-          <Cart onClick={() => setModal(!modal)} />
+          <figure className={styles.Cart}>
+            <Cart onClick={() => setModal(!modal)} />
+          </figure>
           <div
             className={styles.kartComponent}
             style={{ display: modal ? "grid" : "none" }}
