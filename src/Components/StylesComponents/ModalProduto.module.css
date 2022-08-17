@@ -1,6 +1,4 @@
 .modal {
-  height: 100%;
-  width: 100%;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -11,6 +9,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 201;
+  height: 100%;
+  width: 100%;
 }
 .ArtgProduto {
   display: flex;

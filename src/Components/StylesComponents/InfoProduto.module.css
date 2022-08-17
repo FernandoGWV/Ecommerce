@@ -87,3 +87,37 @@
 .aside .btn .BtnCart svg path {
   fill: #fff;
 }
+
+@media (max-width: 930px) {
+  .aside .title {
+    margin: 20px 0;
+    font-size: 1.58rem;
+  }
+
+  .aside p {
+    color: rgba(0, 0, 0, 0.7);
+    width: 450px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .aside .preco {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 914px) {
+  .aside .title {
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+
+  .aside p {
+    color: rgba(0, 0, 0, 0.7);
+    width: 450px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .aside .preco {
+    margin-bottom: 10px;
+  }
+}

@@ -30,6 +30,7 @@ const InfoProduto = ({
   function handleSubmit(event) {
     event.preventDefault();
     carrinho.addItem(titulo, promo, contar, imagem, id);
+    window.alert("Item Adicionado ao carrinho");
   }
 
   return (
