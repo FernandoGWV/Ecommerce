@@ -5,11 +5,24 @@ import AvatarPng from "../Assets/image-avatar.png";
 import { ReactComponent as Delete } from "../Assets/icon-delete.svg";
 import { ReactComponent as Logo } from "../Assets/logo.svg";
 import { useCarrinho } from "../ContextKart/KartCarrinho";
-import ProdutoDB from "../ProdutoDataBase/ProdutosDB";
+import useMedia from "./useMedia";
 const Header = () => {
   const CarinhoContext = useCarrinho();
-  const [modal, setModal] = React.useState(false);
-  console.log(CarinhoContext.carrinho.preco);
+  const [modal, setModal] = React.useState(null);
+  const [mobileMenu, setMobileMenu] = React.useState(false);
+  const listMobile = React.useRef();
+  const mobile = useMedia("(max-width: 830px)");
+
+  const handleCart = () => {
+    setModal(!modal);
+    setMobileMenu(false);
+  };
+
+  const handleBtnMobile = () => {
+    setModal(false);
+    setMobileMenu(!mobileMenu);
+  };
+
   function DeleteProduto() {
     CarinhoContext.limpaDados();
   }
@@ -18,10 +31,21 @@ const Header = () => {
     <header className={`${styles.ModSection1} container`}>
       {" "}
       <nav className={styles.navStyle}>
+        {mobile && (
+          <button
+            className={`${styles.BtnMenu} ${mobileMenu && styles.BtnMenuAtivo}`}
+            onClick={handleBtnMobile}
+          ></button>
+        )}
         <figure>
           <Logo />
         </figure>
-        <ul className={styles.subNav}>
+        <ul
+          className={`${mobile ? styles.subnavMobile : styles.subNav} ${
+            mobileMenu && styles.subnavMobileActive
+          }`}
+          ref={listMobile}
+        >
           <li>
             <a href="/">Collections</a>
           </li>
@@ -50,10 +74,12 @@ const Header = () => {
             {CarinhoContext.carrinho.length}
           </span>
           <figure className={styles.Cart}>
-            <Cart onClick={() => setModal(!modal)} />
+            <Cart onClick={handleCart} />
           </figure>
           <div
-            className={styles.kartComponent}
+            className={`${styles.kartComponent} ${
+              mobile && styles.kartComponentActive
+            }`}
             style={{ display: modal ? "grid" : "none" }}
           >
             {CarinhoContext.carrinho.length === 0 ? (

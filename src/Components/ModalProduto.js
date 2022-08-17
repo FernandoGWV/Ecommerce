@@ -26,8 +26,8 @@ const Produtos = ({ produto, setProduto, OthersImage }) => {
   }
   if (produto)
     return (
-      <>
-        <div setProduto={setModal} className={styles.modal}>
+      <section className={styles.modal}>
+        <div setProduto={setModal}>
           <div className={styles.modalProduct}>
             <button
               className={styles.BtnClose}
@@ -92,7 +92,7 @@ const Produtos = ({ produto, setProduto, OthersImage }) => {
             </div>
           </div>
         </div>
-      </>
+      </section>
     );
   return null;
 };

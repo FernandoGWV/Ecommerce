@@ -29,3 +29,17 @@
 .ArtgProduto ul li img:hover {
   border: solid #d2a86e 2px;
 }
+
+.ProdutoMobile {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+/* @media (max-width: 914px) {
+  .ArtgProduto .content img {
+    width: 200px;
+    border-radius: 10px;
+  }
+}
+ */
